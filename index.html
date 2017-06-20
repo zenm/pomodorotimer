@@ -12,29 +12,36 @@
         <h2>Get stuff done</h2>
         <div class="settings">
           <h3>Your pomodoro time</h3>
-          <label for="work-time"> Set time in munites:   </label>
-          <input id="work-setting" type="text" name="work-time" value="25">
-          <button id="work-setting-plus"type="button" name="button" onclick="changeWorkTime(this.id)"><span>+</span></button>
-          <button id="work-setting-minus"type="button" name="button"><span>-</span></button>
+          <label for="work-time"> Set time in minutes:   </label>
+          <!-- input -->
+          <input id="work-setting-value" type="text" name="work-time" onkeypress="changeDisplay(event, this.id)" value="25">
+          <button id="work-setting-plus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>+</span></button>
+          <button id="work-setting-minus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>-</span></button>
 
           <h3>Your break time</h3>
-          <label for="break-time"> Set time in munites:   </label>
-          <input id="break-setting"type="text" name="break-time" value="5">
-          <button id="break-setting-plus"type="button" name="button"><span>+</span></button>
-          <button id="break-setting-minus"type="button" name="button"><span>-</span></button>
+          <label for="break-time"> Set time in minutes:   </label>
+          <!-- input -->
+          <input id="break-setting-value" type="text" name="break-time" onkeypress="changeDisplay(event, this.id)" value="5">
+          <!-- increment decrement -->
+          <button id="break-setting-plus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>+</span></button>
+          <button id="break-setting-minus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>-</span></button>
         </div>
       </div>
       <div class="timer-area">
-        <div id="display-time"class="users-time">
-          <span>0:00</span>
+        <div class="users-time">
+          <span id="display-work-time-minutes">25</span>:<span id="display-work-time-seconds">00</span>
         </div>
-        <div class="reset-your-clock">
-          <h3>reset</h3>
+        <div class="users-time">
+          <span id="display-break-time-minutes">5</span>:<span id="display-break-time-seconds">00</span>
+        </div>
+        <div class="start-reset-clock">
+          <button onclick="startCountdown()"type="button" name="start-reset-button"><span id="start-pause">Start</span></button>
+          <button type="button" name="start-reset-button" onclick="resetTimeToSettings()"><span id="reset">Reset</span></button>
         </div>
       </div>
       <footer>
         <div class="learn-more">
-
+          <span>Learn more about the <a href="#">Pomodoro Method</a>.</span>
         </div>
         <div class="credits">
           <span>A <a href="#" target="_blank">freecodecamp project</a>by Lino</span>
