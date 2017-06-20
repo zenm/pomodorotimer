@@ -10,17 +10,22 @@
       <div class="settings-area">
         <h1>Pomodoro Timer</h1>
         <h2>Get stuff done</h2>
-        <div class="start-a-pomodoro">
+        <div class="settings">
           <h3>Your pomodoro time</h3>
-          <label for="time"> Set time in munites:   </label>
-          <input type="text" name="time" value="25">
+          <label for="work-time"> Set time in munites:   </label>
+          <input id="work-setting" type="text" name="work-time" value="25">
+          <button id="work-setting-plus"type="button" name="button" onclick="changeWorkTime(this.id)"><span>+</span></button>
+          <button id="work-setting-minus"type="button" name="button"><span>-</span></button>
+
           <h3>Your break time</h3>
           <label for="break-time"> Set time in munites:   </label>
-          <input type="text" name="break-time" value="5">
+          <input id="break-setting"type="text" name="break-time" value="5">
+          <button id="break-setting-plus"type="button" name="button"><span>+</span></button>
+          <button id="break-setting-minus"type="button" name="button"><span>-</span></button>
         </div>
       </div>
       <div class="timer-area">
-        <div class="users-time">
+        <div id="display-time"class="users-time">
           <span>0:00</span>
         </div>
         <div class="reset-your-clock">

@@ -1,12 +1,51 @@
-// used to get the user's preferred timer
+// used to get the user's preferred time
+function getWorkTime() {
+  return document.getElementById("work-setting").value;
+}
 
-// used to reset the timer
+function getBreakTime(){
+  return  document.getElementById("break-setting").value;
+}
+
+// used to set the time on the page
+function displayTime(time){
+  var el = document.getElementById("display-time");
+  el.childNodes[1].textContent = time;
+}
+
+// used to stop the timer
 function stopTime() {
   window.clearInterval(secondTimer);
 }
 
-// used to disable the start timer button
-// need to disable start timer so that you can't trigger multiple timers
+
+//used to decrement or increment the input value
+function changeWorkTime(buttonData) {
+  console.log(buttonData);
+  var currentWorkTime = parseFloat(getWorkTime());
+  var currentBreakTime = parseFloat(getBreakTime());
+
+  if (buttonData == ""){
+  } else if (buttonData == ""){
+  } else if (buttonData == ""){
+  } else if (buttonData == ""){
+  }
+  setWorkTimeValue(currentWorkTime);
+}
+
+function setWorkTimeValue(time) {
+  var el = document.getElementById("work-setting");
+  el.value = time;
+}
+
+function setBreakTimeValue(time) {
+  var el =  document.getElementById("break-setting");
+  el.value = time;
+}
+
+
+
+// used to disable the start timer button -- need to disable start timer so that you can't trigger multiple timers
 
 // used to show the time that's remaining on the page
 var secondTimer;
@@ -17,7 +56,7 @@ function showCountdown(userTime) {
   secondTimer = window.setInterval(doesSomething2, 1000);
 }
 
-var i = 0;
+
 var totalSec = 0;
 function doesSomething2() {
   var minutes = Math.floor(totalSec / 60);
