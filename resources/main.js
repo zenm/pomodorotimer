@@ -1,21 +1,7 @@
 // used to get the user's preferred timer
 
-var totalTime;
-var timeInMinutes;
-// used to start the timer
-function startTime(userTime) {
-  timeInSeconds = userTime * 1000;
-  totalTime = window.setTimeout(doesSomething, timeInSeconds);
-}
-
-function doesSomething() {
-  console.log("Time done");
-  stopTime();
-};
-
 // used to reset the timer
 function stopTime() {
-  window.clearTimeout(totalTime);
   window.clearInterval(secondTimer);
 }
 
@@ -29,14 +15,19 @@ function showCountdown(userTime) {
   var convertToTotalSeconds = userTime * 60; //minutes * seconds;
   totalSec = convertToTotalSeconds;
   secondTimer = window.setInterval(doesSomething2, 1000);
-  startTime(convertToTotalSeconds);
 }
 
 var i = 0;
 var totalSec = 0;
 function doesSomething2() {
-  console.log(totalSec);
+  var minutes = Math.floor(totalSec / 60);
+  var seconds = totalSec % 60 < 10 ? "0"+(totalSec % 60).toString() : totalSec % 60;
+  console.log(minutes + " : " + seconds);
   totalSec--;
+
+  if (totalSec < 0){
+    stopTime();
+  }
 }
 
 // used to
