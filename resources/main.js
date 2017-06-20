@@ -6,7 +6,6 @@ var timeInMinutes;
 function startTime(userTime) {
   timeInSeconds = userTime * 1000;
   totalTime = window.setTimeout(doesSomething, timeInSeconds);
-
 }
 
 function doesSomething() {
@@ -26,16 +25,18 @@ function stopTime() {
 // used to show the time that's remaining on the page
 var secondTimer;
 function showCountdown(userTime) {
+  //user time is in minutes
+  var convertToTotalSeconds = userTime * 60; //minutes * seconds;
+  totalSec = convertToTotalSeconds;
   secondTimer = window.setInterval(doesSomething2, 1000);
-
-  startTime(userTime)
-
+  startTime(convertToTotalSeconds);
 }
 
 var i = 0;
+var totalSec = 0;
 function doesSomething2() {
-  i++;
-  console.log(i);
+  console.log(totalSec);
+  totalSec--;
 }
 
 // used to
