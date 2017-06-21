@@ -7,27 +7,40 @@
   </head>
   <body>
     <div class="container">
-      <div class="settings-area">
-        <h1>Pomodoro Timer</h1>
-        <h2>Get stuff done</h2>
+      <!-- settings area -->
+      <div class="settings-area modal">
         <div class="settings">
+          <h2>Edit your pomodoro settings</h2>
+          <div id="cancel-section">
+            <span>X</span>
+          </div>
+          <h3>Your goal</h3>
+          <label for="set-goal">Set your goal: </label>
+          <input id="display-goal-value" type="text" name="set-goal" placeholder="Get stuff done" onkeyup="setDisplayGoal(getGoalInSettings())">
           <h3>Your pomodoro time</h3>
-          <label for="work-time"> Set time in minutes:   </label>
-          <!-- input -->
-          <input id="work-setting-value" type="text" name="work-time" onkeypress="changeDisplay(event, this.id)" value="25">
-          <button id="work-setting-plus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>+</span></button>
-          <button id="work-setting-minus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>-</span></button>
-
+          <label for="work-time">Set time in minutes: </label>
+          <input id="work-setting-value" type="text" size="3" maxlength="3" name="work-time" onkeyup="changeDisplay(event, this.id)" value="25">
+          <div class="increase-decrease">
+            <button id="work-setting-plus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>+</span></button>
+            <button id="work-setting-minus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>-</span></button>
+          </div>
           <h3>Your break time</h3>
-          <label for="break-time"> Set time in minutes:   </label>
-          <!-- input -->
-          <input id="break-setting-value" type="text" name="break-time" onkeypress="changeDisplay(event, this.id)" value="5">
-          <!-- increment decrement -->
-          <button id="break-setting-plus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>+</span></button>
-          <button id="break-setting-minus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>-</span></button>
+          <label for="break-time"> Set time in minutes: </label>
+          <input id="break-setting-value" type="text" size="3" maxlength="3" name="break-time" onkeyup="changeDisplay(event, this.id)" value="5">
+          <div class="increase-decrease">
+            <button id="break-setting-plus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>+</span></button>
+            <button id="break-setting-minus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>-</span></button>
+          </div>
+
         </div>
       </div>
-      <div class="timer-area">
+      <!-- timer area -->
+      <div class="timer-area display-area">
+        <h1>Pomodoro Timer</h1>
+        <div class="edit-section" id="settings">
+          <span>gears icon</span>
+        </div>
+        <h2 id="display-goal">Get stuff done</h2>
         <div class="users-time">
           <span id="display-work-time-minutes">25</span>:<span id="display-work-time-seconds">00</span>
         </div>
@@ -48,6 +61,6 @@
         </div>
       </footer>
     </div>
-    <script type="text/javascript" src="./resources/main.js"></script>
+  <script type="text/javascript" src="./resources/main.js"></script>
   </body>
 </html>

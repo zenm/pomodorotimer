@@ -39,7 +39,17 @@ function changeSettingTime(buttonData) {
 }
 
 function changeDisplay(e, aboutInput){
-  if (e.which == 13 || e.keyCode == 13){
+  if (e.which == 48|| e.keyCode == 48 ||
+      e.which == 49|| e.keyCode == 49 ||
+      e.which == 50|| e.keyCode == 50 ||
+      e.which == 51|| e.keyCode == 51 ||
+      e.which == 52|| e.keyCode == 52 ||
+      e.which == 53|| e.keyCode == 53 ||
+      e.which == 54|| e.keyCode == 54 ||
+      e.which == 55|| e.keyCode == 55 ||
+      e.which == 56|| e.keyCode == 56 ||
+      e.which == 57|| e.keyCode == 57 ||
+      e.which == 8 || e.keyCode == 8){
     if (aboutInput == "work-setting-value"){
       displayWorkTime(getWorkSettingTime());
     } else if (aboutInput == "break-setting-value"){
@@ -47,6 +57,7 @@ function changeDisplay(e, aboutInput){
     }
   }
 }
+
 
 //used to change the values of work and break settings
 function setWorkTimeValue(time) {
@@ -85,34 +96,41 @@ function getBreakDisplayTime(){
 var secondTimer;
 function startCountdown() {
   var buttonName = document.getElementById("start-pause").textContent;
-  if (buttonName =="Start"){
-  totalSec = getWorkDisplayTime(); // ternary for total seconds to test if work or break is zero?
+  if (buttonName == "Start"){
   secondTimer = window.setInterval(showCountDown, 1000);
   changeButtonName();
-} else if (buttonName == "Pause"){
-  stopTime();
-  changeButtonName();
+  } else if (buttonName == "Pause"){
+    stopTime();
+    changeButtonName();
+  }
 }
 
+function showCountDown() {
+  var totalWorkSeconds = getWorkDisplayTime();
+  var totalBreakSeconds = getBreakDisplayTime();
+  if (totalWorkSeconds > 0){
+    totalWorkSeconds--;
+    var workMinutes = Math.floor(totalWorkSeconds / 60);
+    var workSeconds = totalWorkSeconds % 60 < 10 ? "0"+(totalWorkSeconds % 60).toString() : totalWorkSeconds % 60;
+    document.getElementById("display-work-time-minutes").textContent = workMinutes;
+    document.getElementById("display-work-time-seconds").textContent = workSeconds;
+  } else if (totalBreakSeconds > 0){
+    totalBreakSeconds--;
+    var breakMinutes = Math.floor(totalBreakSeconds / 60);
+    var breakSeconds = totalBreakSeconds % 60 < 10 ? "0"+(totalBreakSeconds % 60).toString() : totalBreakSeconds % 60;
+    document.getElementById("display-break-time-minutes").textContent = breakMinutes;
+    document.getElementById("display-break-time-seconds").textContent = breakSeconds;
+    } else {
+      stopTime();
+      resetTimeToSettings();
+    }
 }
+
 
 function changeButtonName() {
   var buttonName = document.getElementById("start-pause").textContent;
   var el = document.getElementById("start-pause");
   el.textContent = buttonName == "Start"? "Pause" : "Start";
-}
-
-var totalSec = 0;
-function showCountDown() {
-  console.log(totalSec);
-  var minutes = Math.floor(totalSec / 60);
-  var seconds = totalSec % 60 < 10 ? "0"+(totalSec % 60).toString() : totalSec % 60;
-  document.getElementById("display-work-time-minutes").textContent = minutes;
-  document.getElementById("display-work-time-seconds").textContent = seconds;
-  totalSec--;
-  if (totalSec < 0){
-    stopTime();
-  }
 }
 
 function resetTimeToSettings(){
@@ -122,6 +140,22 @@ function resetTimeToSettings(){
   document.getElementById("display-work-time-seconds").textContent = seconds;
   document.getElementById("display-break-time-minutes").textContent = getBreakSettingTime();
   document.getElementById("display-break-time-seconds").textContent = seconds;
-   document.getElementById("start-pause").textContent = "Start"
+  document.getElementById("start-pause").textContent = "Start"
 }
-// used to disable the start timer button -- need to disable start timer so that you can't trigger multiple timers
+
+// used to set the display goal
+function getGoalInSettings() {
+  return document.getElementById("display-goal-value").value;
+}
+
+function setDisplayGoal(goalFromSettings) {
+  return document.getElementById("display-goal").textContent = goalFromSettings;
+}
+
+// used to limit input to numbers
+function limitToNumbers(fieldToCheck) {
+  var intergers = /^[0-9]{1,3}$/;
+  var field = fieldToCheck.toString();
+  return intergers.test(field);
+}
+// used to disable the settings fields, have reset reset disable or settings disable
