@@ -38,7 +38,7 @@ function changeSettingTime(buttonData) {
   }
 }
 
-function changeDisplay(e, aboutInput){
+function allowNumericKeysBackspace(e){
   if (e.which == 48|| e.keyCode == 48 ||
       e.which == 49|| e.keyCode == 49 ||
       e.which == 50|| e.keyCode == 50 ||
@@ -50,6 +50,12 @@ function changeDisplay(e, aboutInput){
       e.which == 56|| e.keyCode == 56 ||
       e.which == 57|| e.keyCode == 57 ||
       e.which == 8 || e.keyCode == 8){
+        return true;
+      }
+    return false;
+}
+function changeDisplay(e, aboutInput){
+  if (allowNumericKeysBackspace(e)){
     if (aboutInput == "work-setting-value"){
       displayWorkTime(getWorkSettingTime());
     } else if (aboutInput == "break-setting-value"){
@@ -158,4 +164,35 @@ function limitToNumbers(fieldToCheck) {
   var field = fieldToCheck.toString();
   return intergers.test(field);
 }
-// used to disable the settings fields, have reset reset disable or settings disable
+
+var modal = document.getElementById("modal-setting");
+var openGear = document.getElementById("open-edit-settings");
+var closeModal = document.getElementById("cancel-edit-settings");
+// Click on gear, open modal
+openGear.onclick = function(){
+  modal.style.display = "block";
+  stopTime();
+  document.getElementById("start-pause").textContent = "Start"
+}
+
+// Click on x, close modal.
+closeModal.onclick = function(){
+  modal.style.display = "none";
+  document.getElementById("start-pause").textContent = "Start"
+}
+
+// click on modal (but not modal content), close modal
+window.onclick = function(event) {
+  if (event.target == modal) {
+      modal.style.display = "none";
+      document.getElementById("start-pause").textContent = "Start"
+  }
+}
+
+
+function changeBodyColor(){
+  var bodyStyle = document.body.style;
+  var isPause = document.getElementById("start-pause").textContent;
+    bodyStyle.backgroundColor = "#3399A1";yStyle.backgroundColor = "#A13B34"; //red
+    bodyStyle.backgroundColor = "#F1BA55"; //yellow
+}

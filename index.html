@@ -4,15 +4,16 @@
     <meta charset="utf-8">
     <title>Pomodoro Timer</title>
     <link rel="stylesheet" href="./resources/styles/master.css">
+    <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" integrity="sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/u2L9xRnHjJiAK76m2BIEaSEV+/aU" crossorigin="anonymous">
   </head>
   <body>
     <div class="container">
       <!-- settings area -->
-      <div class="settings-area modal">
+      <div id="modal-setting" class="settings-area modal">
         <div class="settings">
           <h2>Edit your pomodoro settings</h2>
-          <div id="cancel-section">
-            <span>X</span>
+          <div id="cancel-edit-settings">
+            <i class="fa fa-times" aria-hidden="true"></i>
           </div>
           <h3>Your goal</h3>
           <label for="set-goal">Set your goal: </label>
@@ -31,14 +32,13 @@
             <button id="break-setting-plus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>+</span></button>
             <button id="break-setting-minus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>-</span></button>
           </div>
-
         </div>
       </div>
       <!-- timer area -->
       <div class="timer-area display-area">
         <h1>Pomodoro Timer</h1>
-        <div class="edit-section" id="settings">
-          <span>gears icon</span>
+        <div class="edit-section" id="open-edit-settings">
+          <i class="fa fa-cog" aria-hidden="true"></i>
         </div>
         <h2 id="display-goal">Get stuff done</h2>
         <div class="users-time">

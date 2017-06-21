@@ -1,4 +1,23 @@
-*,
 body{
-  border: 1px dotted red;
+  background-color: #F1BA55; /*yellow*/
+}
+
+
+.modal{
+  display: none;
+  z-index: 1;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #bbb;
+  background-color: rgba(187, 187, 187, .7);
+}
+
+.settings {
+  width: 80%;
+  background-color: #fefefe;
+  margin: 20px auto ;
 }
