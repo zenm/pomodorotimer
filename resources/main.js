@@ -126,9 +126,11 @@ function showCountDown() {
     var breakSeconds = totalBreakSeconds % 60 < 10 ? "0"+(totalBreakSeconds % 60).toString() : totalBreakSeconds % 60;
     document.getElementById("display-break-time-minutes").textContent = breakMinutes;
     document.getElementById("display-break-time-seconds").textContent = breakSeconds;
+    changeBodyColor("red");
     } else {
       stopTime();
       resetTimeToSettings();
+
     }
 }
 
@@ -147,6 +149,7 @@ function resetTimeToSettings(){
   document.getElementById("display-break-time-minutes").textContent = getBreakSettingTime();
   document.getElementById("display-break-time-seconds").textContent = seconds;
   document.getElementById("start-pause").textContent = "Start"
+  changeBodyColor("yellow");
 }
 
 // used to set the display goal
@@ -172,27 +175,49 @@ var closeModal = document.getElementById("cancel-edit-settings");
 openGear.onclick = function(){
   modal.style.display = "block";
   stopTime();
-  document.getElementById("start-pause").textContent = "Start"
+  buttonId.textContent = "Start"
+  changeBodyColor("yellow");
 }
 
 // Click on x, close modal.
 closeModal.onclick = function(){
   modal.style.display = "none";
-  document.getElementById("start-pause").textContent = "Start"
+  buttonId.textContent = "Start"
 }
 
 // click on modal (but not modal content), close modal
 window.onclick = function(event) {
   if (event.target == modal) {
       modal.style.display = "none";
-      document.getElementById("start-pause").textContent = "Start"
+      buttonId.textContent = "Start"
   }
 }
 
+var buttonId = document.getElementById("start-pause");
+buttonId.addEventListener("click", whichBodyColor);
 
-function changeBodyColor(){
+var gearId = document.getElementById("open-edit-settings");
+gearId.addEventListener("click",changeBodyColor("yellow"));
+
+function changeBodyColor(color) {
   var bodyStyle = document.body.style;
   var isPause = document.getElementById("start-pause").textContent;
-    bodyStyle.backgroundColor = "#3399A1";yStyle.backgroundColor = "#A13B34"; //red
-    bodyStyle.backgroundColor = "#F1BA55"; //yellow
+  var backgroundColors = {
+    green : "#3399A1",
+    red : "#A13B34",
+    yellow : "#F1BA55"
+  }
+  bodyStyle.backgroundColor = backgroundColors[color];
+}
+
+function whichBodyColor(){
+  if (getWorkDisplayTime() > 0 && buttonId.textContent == "Start"){
+    changeBodyColor("green");
+  } else if (getWorkDisplayTime() <= 0 &&
+      getBreakDisplayTime() > 0 &&
+      buttonId.textContent == "Start") {
+        changeBodyColor("red");
+  } else {
+    changeBodyColor("yellow");
+  }
 }
