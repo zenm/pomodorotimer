@@ -1,9 +1,119 @@
-body{
+@font-face {
+  font-family: 'Hind';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Hind Regular'), local('Hind-Regular'), url(https://fonts.gstatic.com/s/hind/v7/xLdg5JI0N_C2fvyu9XVzXg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+@font-face {
+  font-family: 'Hind';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Hind SemiBold'), local('Hind-SemiBold'), url(https://fonts.gstatic.com/s/hind/v7/A2xpLU2z2kq5byuh5bkohg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+@font-face {
+  font-family: 'Fira Mono';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Fira Mono Bold'), local('FiraMono-Bold'), url(https://fonts.gstatic.com/s/firamono/v5/l24Wph3FsyKAbJ8dfExTZ-gdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
   background-color: #F1BA55; /*yellow*/
+  line-height: 1.2;
+  font-family: 'Hind', sans-serif;
+  text-align: center;
+
+}
+
+/* timer styles */
+.title-area {
+  height: 10rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tomato {
+  height: 6.25rem;
+  margin: 0 1rem;
+}
+.tomato img{
+  height: 100%;
+}
+
+.tomato {
+  float: left;
+}
+
+.clock i {
+  font-size: 7rem;
+  margin: 0 1rem;
+}
+/* gear icon*/
+.setting-area {
+  margin: 4rem 0;
+}
+.gears i{
+  font-size: 5rem;
+}
+
+/* goal and timer*/
+.goal-and-timer {
+  margin: 8rem 0;
+}
+.users-goal {
+  font-size: 4rem;
+}
+
+.users-time {
+    font-family: 'Fira Mono', monospace;
+}
+.users-time span {
+  font-size: 10rem;
+  font-weight: 600;
+}
+
+.buttons {
+  height: 8rem;
+  font-size: 3rem;
+  padding: 1rem 3rem;
+  /*width: 100%;*/
+}
+
+.button {
+  height: 6rem;
+  margin: 1rem;
+  width: 40%;
+}
+
+.button span {
+  font-size: 3rem;
+}
+
+footer {
+  background-color: #afafaf;
+  font-size: 2rem;
+  margin: 10rem 0 0 0;
+  padding: 3rem 0;
+}
+.learn-more,
+.credits {
+  margin: 1rem 0;
 }
 
 
-.modal{
+/* modal styles */
+.modal {
   display: none;
   z-index: 1;
   position: fixed;
@@ -18,6 +128,49 @@ body{
 
 .settings {
   width: 80%;
+  height: 60rem;
   background-color: #fefefe;
-  margin: 20px auto ;
+  background-color: rgba(254, 254, 254, .95);
+  margin: 5rem auto ;
+}
+
+.settings-text {
+  font-size: 2rem;
+  padding: 3rem;
+}
+
+.settings-text h3 {
+  margin-top: 2rem;
+}
+
+.settings .title {
+  font-weight: 600;
+}
+
+.settings-text input {
+  height: 4rem;
+  font-size: 2rem;
+  border: none;
+  border: 2px solid #dadada;
+}
+
+.increase-decrease {
+  display: flex;
+  justify-content: flex-end;
+
+}
+.increase-decrease button {
+  height: 4rem;
+  width: 5rem;
+  font-size: 2rem;
+  margin: 1rem;
+  position: relative;
+  right: 2rem;
+}
+
+.cancel-button {
+  font-size: 3rem;
+  height: 5rem;
+  margin: 2rem;
+  padding: 1rem 2rem;
 }

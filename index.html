@@ -3,59 +3,69 @@
   <head>
     <meta charset="utf-8">
     <title>Pomodoro Timer</title>
-    <link rel="stylesheet" href="./resources/styles/master.css">
+    <link rel="stylesheet" href="./resources/styles/reset.css">
     <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" integrity="sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/u2L9xRnHjJiAK76m2BIEaSEV+/aU" crossorigin="anonymous">
+    <link rel="stylesheet" href="./resources/styles/master.css">
   </head>
   <body>
     <div class="container">
-      <!-- settings area -->
+      <!-- settings area modal -->
       <div id="modal-setting" class="settings-area modal">
         <div class="settings">
-          <h2>Edit your pomodoro settings</h2>
-          <div id="cancel-edit-settings">
-            <i class="fa fa-times" aria-hidden="true"></i>
+          <div class="settings-text">
+            <h3 class="title">Edit your pomodoro settings</h2>
+            <h3>Your goal</h3>
+            <label for="set-goal">Set your goal: </label>
+            <input id="display-goal-value" type="text" name="set-goal" placeholder="Get stuff done" onkeyup="setDisplayGoal(getGoalInSettings())" size="20" maxlength="20">
+            <h3>Your work time</h3>
+            <label for="work-time">Set time in minutes: </label>
+            <input id="work-setting-value" type="text" size="3" maxlength="3" name="work-time" onkeyup="changeDisplay(event, this.id)" value="25">
+            <div class="increase-decrease">
+              <button id="work-setting-plus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>+</span></button>
+              <button id="work-setting-minus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>-</span></button>
+            </div>
+            <h3>Your break time</h3>
+            <label for="break-time"> Set time in minutes: </label>
+            <input id="break-setting-value" type="text" size="3" maxlength="3" name="break-time" onkeyup="changeDisplay(event, this.id)" value="5">
+            <div class="increase-decrease">
+              <button id="break-setting-plus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>+</span></button>
+              <button id="break-setting-minus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>-</span></button>
+            </div>
+            <div id="cancel-edit-settings">
+              <button class="cancel-button" type="button" name="button"><span>Done</span></button>
+            </div>
           </div>
-          <h3>Your goal</h3>
-          <label for="set-goal">Set your goal: </label>
-          <input id="display-goal-value" type="text" name="set-goal" placeholder="Get stuff done" onkeyup="setDisplayGoal(getGoalInSettings())">
-          <h3>Your pomodoro time</h3>
-          <label for="work-time">Set time in minutes: </label>
-          <input id="work-setting-value" type="text" size="3" maxlength="3" name="work-time" onkeyup="changeDisplay(event, this.id)" value="25">
-          <div class="increase-decrease">
-            <button id="work-setting-plus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>+</span></button>
-            <button id="work-setting-minus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>-</span></button>
-          </div>
-          <h3>Your break time</h3>
-          <label for="break-time"> Set time in minutes: </label>
-          <input id="break-setting-value" type="text" size="3" maxlength="3" name="break-time" onkeyup="changeDisplay(event, this.id)" value="5">
-          <div class="increase-decrease">
-            <button id="break-setting-plus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>+</span></button>
-            <button id="break-setting-minus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>-</span></button>
-          </div>
+
         </div>
       </div>
-      <!-- timer area -->
+      <!-- timer area. Not modal -->
       <div class="timer-area display-area">
-        <h1>Pomodoro Timer</h1>
-        <div class="tomato image">
-          <img src="./resources/images/tomato_by_lino.svg" alt="image of a tomato">
+        <div class="title-area">
+          <!-- <h1>Pomodoro Timer</h1> -->
+          <div class="tomato image">
+            <img src="./resources/images/tomato_by_lino.svg" alt="image of a tomato">
+          </div>
+          <div class="clock image">
+            <i class="fa-4x fa fa-clock-o" aria-hidden="true"></i>
+          </div>
         </div>
-        <div class="clock image">
-          <i class="fa fa-clock-o" aria-hidden="true"></i>
+        <div class="setting-area">
+          <div class="edit-section gears image" id="open-edit-settings">
+            <i class=" fa-4x fa fa-cog" aria-hidden="true"></i>
+          </div>
         </div>
-        <div class="edit-section icon" id="open-edit-settings">
-          <i class="fa fa-cog" aria-hidden="true"></i>
+        <div class="goal-and-timer">
+          <h2 class="users-goal" id="display-goal">Get stuff done</h2>
+          <div class="users-time">
+            <span id="display-work-time-minutes">25</span><span>:</span><span id="display-work-time-seconds">00</span>
+          </div>
+          <div class="users-time">
+            <span id="display-break-time-minutes">5</span><span>:</span><span id="display-break-time-seconds">00</span>
+          </div>
         </div>
-        <h2 id="display-goal">Get stuff done</h2>
-        <div class="users-time">
-          <span id="display-work-time-minutes">25</span>:<span id="display-work-time-seconds">00</span>
-        </div>
-        <div class="users-time">
-          <span id="display-break-time-minutes">5</span>:<span id="display-break-time-seconds">00</span>
-        </div>
-        <div class="start-reset-clock">
-          <button onclick="startCountdown()"type="button" name="start-reset-button"><span id="start-pause">Start</span></button>
-          <button type="button" name="start-reset-button" onclick="resetTimeToSettings()"><span id="reset">Reset</span></button>
+        <div class="buttons">
+          <button class="button start-pause" onclick="startCountdown()"type="button" name="start-reset-button"><span id="start-pause">Start</span></button>
+          <button class="button reset" type="button" name="start-reset-button" onclick="resetTimeToSettings()"><span id="reset">Reset</span></button>
         </div>
       </div>
       <footer>
