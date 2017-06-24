@@ -18,6 +18,20 @@ function displayBreakTime(time) {
   elBreakDisplay.textContent = time;
 }
 
+//ensure settings has atleast a 0;
+// workSettingValue.addEventListener("onkeypress", forceAZeroIfBlank());
+// breakSettingValue.addEventListener("onkeypress", forceAZeroIfBlank());
+
+function forceAZeroIfBlank() {
+  var workSettingValue = document.getElementById("work-setting-value");
+  var breakSettingValue = document.getElementById("break-setting-value");
+  if (workSettingValue.value.length == 0) {
+    workSettingValue.value = "0";
+  }
+   if (breakSettingValue.value.length == 0) {
+    breakSettingValue.value = "0";
+  }
+}
 
 //used to decrement or increment the input value
 function changeSettingTime(buttonData) {
@@ -49,7 +63,7 @@ function allowNumericKeysBackspace(e){
       e.which == 55|| e.keyCode == 55 ||
       e.which == 56|| e.keyCode == 56 ||
       e.which == 57|| e.keyCode == 57 ||
-      e.which == 8 || e.keyCode == 8){
+      e.which == 8 || e.keyCode == 8) {
         return true;
       }
     return false;
@@ -134,7 +148,6 @@ function showCountDown() {
     }
 }
 
-
 function changeButtonName() {
   var buttonName = document.getElementById("start-pause").textContent;
   var el = document.getElementById("start-pause");
@@ -163,9 +176,9 @@ function setDisplayGoal(goalFromSettings) {
 
 // used to limit input to numbers
 function limitToNumbers(fieldToCheck) {
-  var intergers = /^[0-9]{1,3}$/;
+  var integers = /^[0-9]{1,3}$/;
   var field = fieldToCheck.toString();
-  return intergers.test(field);
+  return integers.test(field);
 }
 
 var modal = document.getElementById("modal-setting");
@@ -182,14 +195,14 @@ openGear.onclick = function(){
 // Click on x, close modal.
 closeModal.onclick = function(){
   modal.style.display = "none";
-  buttonId.textContent = "Start"
+  // buttonId.children[0].textContent = "Start"
 }
 
 // click on modal (but not modal content), close modal
 window.onclick = function(event) {
   if (event.target == modal) {
       modal.style.display = "none";
-      buttonId.textContent = "Start"
+      // buttonId.children[0].textContent = "Start"
   }
 }
 
@@ -201,7 +214,6 @@ gearId.addEventListener("click",changeBodyColor("yellow"));
 
 function changeBodyColor(color) {
   var bodyStyle = document.body.style;
-  var isPause = document.getElementById("start-pause").textContent;
   var backgroundColors = {
     green : "#3399A1",
     red : "#A13B34",
@@ -211,13 +223,15 @@ function changeBodyColor(color) {
 }
 
 function whichBodyColor(){
-  if (getWorkDisplayTime() > 0 && buttonId.textContent == "Start"){
+  if (getWorkDisplayTime() > 0 && buttonId.textContent == "Pause"){
     changeBodyColor("green");
   } else if (getWorkDisplayTime() <= 0 &&
       getBreakDisplayTime() > 0 &&
-      buttonId.textContent == "Start") {
+      buttonId.children[0].textContent == "Pause") {
         changeBodyColor("red");
   } else {
     changeBodyColor("yellow");
   }
 }
+
+/* desktop styles*/

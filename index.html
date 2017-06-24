@@ -16,7 +16,7 @@
             <h3 class="title">Edit your pomodoro settings</h2>
             <h3>Your goal</h3>
             <label for="set-goal">Set your goal: </label>
-            <input id="display-goal-value" type="text" name="set-goal" placeholder="Get stuff done" onkeyup="setDisplayGoal(getGoalInSettings())" size="20" maxlength="20">
+            <input id="display-goal-value" type="text" name="set-goal" placeholder="Get stuff done" onkeyup="setDisplayGoal(getGoalInSettings())" size="15" maxlength="15">
             <h3>Your work time</h3>
             <label for="work-time">Set time in minutes: </label>
             <input id="work-setting-value" type="text" size="3" maxlength="3" name="work-time" onkeyup="changeDisplay(event, this.id)" value="25">
@@ -26,7 +26,7 @@
             </div>
             <h3>Your break time</h3>
             <label for="break-time"> Set time in minutes: </label>
-            <input id="break-setting-value" type="text" size="3" maxlength="3" name="break-time" onkeyup="changeDisplay(event, this.id)" value="5">
+            <input id="break-setting-value" type="text" size="3" maxlength="3" name="break-time" onkeyup="changeDisplay(event, this.id)" onkeyup="forceAZeroIfBlank()" value="5">
             <div class="increase-decrease">
               <button id="break-setting-plus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>+</span></button>
               <button id="break-setting-minus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>-</span></button>
@@ -49,22 +49,24 @@
             <i class="fa-4x fa fa-clock-o" aria-hidden="true"></i>
           </div>
         </div>
-        <div class="setting-area">
-          <div class="edit-section gears image" id="open-edit-settings">
-            <i class=" fa-4x fa fa-cog" aria-hidden="true"></i>
-          </div>
-        </div>
         <div class="goal-and-timer">
-          <h2 class="users-goal" id="display-goal">Get stuff done</h2>
-          <div class="users-time">
+          <div class="goal-and-setting">
+            <h2 class="users-goal" id="display-goal">Get stuff done</h2>
+            <div class="setting-area">
+              <div class="edit-section gears image" id="open-edit-settings">
+                <i class=" fa-4x fa fa-cog" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+          <div class="users-time work-time">
             <span id="display-work-time-minutes">25</span><span>:</span><span id="display-work-time-seconds">00</span>
           </div>
-          <div class="users-time">
+          <div class="users-time break-time">
             <span id="display-break-time-minutes">5</span><span>:</span><span id="display-break-time-seconds">00</span>
           </div>
         </div>
         <div class="buttons">
-          <button class="button start-pause" onclick="startCountdown()"type="button" name="start-reset-button"><span id="start-pause">Start</span></button>
+          <button class="button start-pause" onclick="startCountdown()"type="button" name="start-reset-button" id="start-pause"><span>Start</span></button>
           <button class="button reset" type="button" name="start-reset-button" onclick="resetTimeToSettings()"><span id="reset">Reset</span></button>
         </div>
       </div>

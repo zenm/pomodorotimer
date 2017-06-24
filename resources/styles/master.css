@@ -36,15 +36,16 @@ body {
 
 /* timer styles */
 .title-area {
-  height: 10rem;
+  height: 15rem;.
   width: 100%;
+  margin: 5rem 0 0 0;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .tomato {
-  height: 6.25rem;
+  height: 12.25rem;
   margin: 0 1rem;
 }
 .tomato img{
@@ -56,7 +57,7 @@ body {
 }
 
 .clock i {
-  font-size: 7rem;
+  font-size: 13rem;
   margin: 0 1rem;
 }
 /* gear icon*/
@@ -67,9 +68,16 @@ body {
   font-size: 5rem;
 }
 
-/* goal and timer*/
+/*goal and settings*/
+.goal-and-setting {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* timer*/
 .goal-and-timer {
-  margin: 8rem 0;
+  margin: 2rem 0 12rem 0;
 }
 .users-goal {
   font-size: 4rem;
@@ -78,26 +86,33 @@ body {
 .users-time {
     font-family: 'Fira Mono', monospace;
 }
+
+.users-time .work-time {
+  margin: 3rem 0 0 0;
+}
+
 .users-time span {
-  font-size: 10rem;
+  font-size: 14rem;
   font-weight: 600;
 }
 
 .buttons {
-  height: 8rem;
+  height: 16rem;
   font-size: 3rem;
-  padding: 1rem 3rem;
-  /*width: 100%;*/
 }
 
 .button {
-  height: 6rem;
+  font-size: 5rem;
+  border: 1rem solid #222;
+  height: auto;
   margin: 1rem;
   width: 40%;
+  padding: 3rem 4rem;
+  background-color: #ececec;
 }
 
 .button span {
-  font-size: 3rem;
+  font-size: 5rem;
 }
 
 footer {
