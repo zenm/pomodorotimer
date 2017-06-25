@@ -189,3 +189,39 @@ footer {
   margin: 2rem;
   padding: 1rem 2rem;
 }
+
+
+
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+  .title-area {
+    height: 5rem;.
+    width: 100%;
+    margin: 1rem 0 0 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .tomato {
+    height: 2.25rem;
+    margin: 0 1rem;
+  }
+  .tomato img{
+    height: 100%;
+  }
+
+  .tomato {
+    float: left;
+  }
+
+  .clock i {
+    font-size: 3rem;
+    margin: 0 1rem;
+  }
+
+  
+}
