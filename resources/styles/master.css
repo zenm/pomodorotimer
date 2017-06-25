@@ -60,10 +60,8 @@ body {
   font-size: 13rem;
   margin: 0 1rem;
 }
-/* gear icon*/
-.setting-area {
-  margin: 4rem 0;
-}
+
+
 .gears i{
   font-size: 5rem;
 }
@@ -77,14 +75,15 @@ body {
 
 /* timer*/
 .goal-and-timer {
-  margin: 2rem 0 12rem 0;
+  margin: 2rem 0 7rem 0;
 }
 .users-goal {
   font-size: 4rem;
 }
 
 .users-time {
-    font-family: 'Fira Mono', monospace;
+  font-family: 'Fira Mono', monospace;
+  font-size: 12rem;
 }
 
 .users-time .work-time {
@@ -92,27 +91,22 @@ body {
 }
 
 .users-time span {
-  font-size: 14rem;
+
   font-weight: 600;
 }
 
 .buttons {
-  height: 16rem;
-  font-size: 3rem;
+  height: 6rem;
 }
 
 .button {
-  font-size: 5rem;
+  font-size: 2.5rem;
   border: 1rem solid #222;
   height: auto;
   margin: 1rem;
   width: 40%;
   padding: 3rem 4rem;
   background-color: #ececec;
-}
-
-.button span {
-  font-size: 5rem;
 }
 
 footer {
@@ -194,7 +188,7 @@ footer {
 
 @media only screen and (min-width: 768px) {
   .container {
-    max-width: 40rem;
+    max-width: 50rem;
     margin: 0 auto;
   }
   .title-area {
@@ -223,5 +217,39 @@ footer {
     margin: 0 1rem;
   }
 
-  
+  .gears {
+    margin-left: auto;
+  }
+
+  .gears i{
+    font-size: 3rem;
+  }
+
+  /* goal and timer*/
+
+  .goal-and-timer {
+    margin: 1rem 0 1rem 0;
+    /*display: flex;
+    justify-content: flex-end;
+    flex-flow: column nowrap;*/
+  }
+  .users-goal {
+    font-size: 3rem;
+  }
+
+  .users-time {
+    font-family: 'Fira Mono', monospace;
+  }
+
+  .users-time .work-time {
+    margin: 1rem 0 0 0;
+    height: 2rem;
+  }
+
+  .users-time span {
+    font-size: 4rem;
+    font-weight: 600;
+  }
+
+
 }
