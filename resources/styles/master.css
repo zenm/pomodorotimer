@@ -36,19 +36,19 @@ body {
 
 /* timer styles */
 .title-area {
-  height: 15rem;.
+  height: 6rem;.
   width: 100%;
-  margin: 5rem 0 0 0;
+  margin: 2rem 0 0 0;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .tomato {
-  height: 12.25rem;
+  height: 4.25rem;
   margin: 0 1rem;
 }
-.tomato img{
+.tomato img {
   height: 100%;
 }
 
@@ -57,12 +57,12 @@ body {
 }
 
 .clock i {
-  font-size: 13rem;
+  font-size: 5rem;
   margin: 0 1rem;
 }
 
 
-.gears i{
+.gears i {
   font-size: 5rem;
 }
 
@@ -75,15 +75,15 @@ body {
 
 /* timer*/
 .goal-and-timer {
-  margin: 2rem 0 7rem 0;
+  margin: 2rem 0 5rem 0;
 }
 .users-goal {
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 .users-time {
   font-family: 'Fira Mono', monospace;
-  font-size: 12rem;
+  font-size: 5rem;
 }
 
 .users-time .work-time {
@@ -91,35 +91,34 @@ body {
 }
 
 .users-time span {
-
   font-weight: 600;
 }
 
 .buttons {
   height: 6rem;
+  width: 100%;
 }
 
 .button {
-  font-size: 2.5rem;
+  font-size: 1rem;
   border: 1rem solid #222;
   height: auto;
   margin: 1rem;
   width: 40%;
-  padding: 3rem 4rem;
+  padding: 1rem 2rem;
   background-color: #ececec;
 }
 
 footer {
   background-color: #afafaf;
-  font-size: 2rem;
-  margin: 10rem 0 0 0;
+  font-size: 1.2rem;
+  margin: 4rem 0 0 0;
   padding: 3rem 0;
 }
 .learn-more,
 .credits {
   margin: 1rem 0;
 }
-
 
 /* modal styles */
 .modal {
@@ -137,15 +136,15 @@ footer {
 
 .settings {
   width: 80%;
-  height: 60rem;
+  height: 50rem;
   background-color: #fefefe;
   background-color: rgba(254, 254, 254, .95);
   margin: 5rem auto ;
 }
 
 .settings-text {
-  font-size: 2rem;
-  padding: 3rem;
+  font-size: 1.5rem;
+  padding: 1rem;
 }
 
 .settings-text h3 {
@@ -157,8 +156,8 @@ footer {
 }
 
 .settings-text input {
-  height: 4rem;
-  font-size: 2rem;
+  height: 2rem;
+  font-size: 1.75rem;
   border: none;
   border: 2px solid #dadada;
 }
@@ -166,25 +165,22 @@ footer {
 .increase-decrease {
   display: flex;
   justify-content: flex-end;
-
 }
+
 .increase-decrease button {
-  height: 4rem;
+  height: 3rem;
   width: 5rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin: 1rem;
   position: relative;
   right: 2rem;
 }
 
 .cancel-button {
-  font-size: 3rem;
-  height: 5rem;
+  font-size: 1.75rem;
   margin: 2rem;
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
 }
-
-
 
 @media only screen and (min-width: 768px) {
   .container {
@@ -239,6 +235,7 @@ footer {
 
   .users-time {
     font-family: 'Fira Mono', monospace;
+    font-size: 7rem;
   }
 
   .users-time .work-time {
@@ -247,9 +244,71 @@ footer {
   }
 
   .users-time span {
-    font-size: 4rem;
     font-weight: 600;
   }
+
+  footer {
+    width: 100%;
+    font-size: 1.2rem;
+    margin: 7rem 0 0 0;
+    padding: 2rem 0;
+  }
+  .learn-more,
+  .credits {
+    margin: 1rem 0;
+  }
+
+  /* modal styles */
+
+  .settings {
+    max-width: 30rem;
+    height: 45rem;
+    margin: 5rem auto ;
+  }
+
+  .settings-text {
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+
+  .settings-text h3 {
+    margin-top: 2rem;
+  }
+
+  .settings .title {
+    font-weight: 600;
+  }
+
+  .settings-text input {
+    height: 2rem;
+    font-size: 1.75rem;
+    border: none;
+    border: 2px solid #dadada;
+  }
+
+  .increase-decrease {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .increase-decrease button {
+    height: 3rem;
+    width: 5rem;
+    font-size: 1.5rem;
+    margin: 1rem;
+    position: relative;
+    right: 2rem;
+  }
+
+  .cancel-button {
+    font-size: 1.75rem;
+    margin: 2rem;
+    padding: 1rem 1.5rem;
+  }
+
+
+
+
 
 
 }

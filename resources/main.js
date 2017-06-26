@@ -227,7 +227,7 @@ function whichBodyColor(){
     changeBodyColor("green");
   } else if (getWorkDisplayTime() <= 0 &&
       getBreakDisplayTime() > 0 &&
-      buttonId.children[0].textContent == "Pause") {
+      buttonId.textContent == "Pause") {
         changeBodyColor("red");
   } else {
     changeBodyColor("yellow");
