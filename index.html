@@ -22,15 +22,15 @@
             <label for="work-time">Set time in minutes: </label>
             <input id="work-setting-value" type="text" size="3" maxlength="3" name="work-time" onkeyup="changeDisplay(event, this.id)" value="25">
             <div class="increase-decrease">
-              <button id="work-setting-plus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>+</span></button>
               <button id="work-setting-minus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>-</span></button>
+              <button id="work-setting-plus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>+</span></button>
             </div>
             <h3>Your break time</h3>
             <label for="break-time"> Set time in minutes: </label>
             <input id="break-setting-value" type="text" size="3" maxlength="3" name="break-time" onkeyup="changeDisplay(event, this.id)" onkeyup="forceAZeroIfBlank()" value="5">
             <div class="increase-decrease">
-              <button id="break-setting-plus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>+</span></button>
               <button id="break-setting-minus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>-</span></button>
+              <button id="break-setting-plus"type="button" name="button" onclick="changeSettingTime(this.id)"><span>+</span></button>
             </div>
             <div id="cancel-edit-settings">
               <button class="cancel-button" type="button" name="button"><span>Done</span></button>
